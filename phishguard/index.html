@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Guard | URL Security Scanner</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">P</div>
+            <div>
+                <h2>PHISHING<span>GUARD</span></h2>
+                <small>SECURITY SYSTEM</small>
+            </div>
+        </div>
+
+        <div class="menu-label">MAIN MENU</div>
+
+        <a href="#scanner" class="menu-item active">
+            <span>⌕</span> URL Scanner
+        </a>
+
+        <a href="#history" class="menu-item">
+            <span>◷</span> Scan History
+        </a>
+
+        <div class="sidebar-bottom">
+            <div class="status-dot"></div>
+            <div>
+                <strong>System Online</strong>
+                <small>Local scanner active</small>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <p class="breadcrumb">DASHBOARD / SECURITY</p>
+                <h1>Security Overview</h1>
+            </div>
+            <div class="profile">
+                <div class="profile-icon">PG</div>
+                <span>Security Analyst</span>
+            </div>
+        </header>
+
+        <section class="welcome">
+            <div>
+                <span class="eyebrow">CYBER SECURITY TOOL</span>
+                <h2>Stay One Step Ahead of<br><span>Online Threats.</span></h2>
+                <p>Inspect suspicious URLs and identify common phishing indicators before visiting unknown websites.</p>
+            </div>
+            <div class="shield-art">⬡</div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <span class="stat-icon">⌕</span>
+                <p>Total Scans</p>
+                <h2 id="totalScans">0</h2>
+                <small>Scans performed</small>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon warning">⚠</span>
+                <p>Suspicious URLs</p>
+                <h2 id="suspiciousScans">0</h2>
+                <small>Flagged indicators</small>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon safe">✓</span>
+                <p>Low Risk URLs</p>
+                <h2 id="safeScans">0</h2>
+                <small>Low-risk checks</small>
+            </div>
+        </section>
+
+        <section class="scanner-section" id="scanner">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">URL INSPECTION</span>
+                    <h2>Phishing URL Scanner</h2>
+                    <p>Enter a website address to inspect common suspicious patterns.</p>
+                </div>
+                <span class="live-badge">● SCANNER READY</span>
+            </div>
+
+            <div class="scanner-box">
+                <label for="urlInput">ENTER WEBSITE URL</label>
+
+                <div class="input-area">
+                    <span class="input-icon">🔗</span>
+                    <input type="text" id="urlInput"
+                        placeholder="https://example.com"
+                        autocomplete="off">
+                    <button id="scanButton">SCAN URL <span>→</span></button>
+                </div>
+
+                <p class="input-hint">Enter a complete URL including its domain name.</p>
+                <p id="errorMessage" class="error-message"></p>
+            </div>
+
+            <div id="result" class="result-box hidden" aria-live="polite">
+                <div class="result-top">
+                    <div>
+                        <span class="eyebrow">SCAN REPORT</span>
+                        <h2 id="resultTitle">Analysis Complete</h2>
+                    </div>
+                    <span id="riskBadge" class="risk-badge">LOW RISK</span>
+                </div>
+
+                <div class="score-area">
+                    <div>
+                        <p>Risk Score</p>
+                        <h2 id="riskScore">0<span>/100</span></h2>
+                    </div>
+                    <div class="score-track">
+                        <div id="scoreFill"></div>
+                    </div>
+                </div>
+
+                <p id="scannedUrl" class="scanned-url"></p>
+
+                <h3>Security Indicators</h3>
+                <ul id="indicatorList" class="indicator-list"></ul>
+
+                <p id="resultNote" class="result-note"></p>
+            </div>
+        </section>
+
+        <section class="history-section" id="history">
+            <div class="history-heading">
+                <div>
+                    <span class="eyebrow">ACTIVITY LOG</span>
+                    <h2>Recent Scan History</h2>
+                    <p>Your previous URL inspection records.</p>
+                </div>
+                <button id="clearHistory" class="clear-button">Clear History</button>
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>WEBSITE</th>
+                            <th>DATE & TIME</th>
+                            <th>RISK LEVEL</th>
+                            <th>SCORE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <tr>
+                            <td colspan="4" class="empty-state">No scans performed yet.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>PHISHING GUARD © 2026</p>
+            <p>Educational Security Scanner | Built for Cyber Security Learning</p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
