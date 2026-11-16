@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arma Khan | Cybersecurity Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#080d0b;
+  --panel:#101815;
+  --green:#7cff9b;
+  --muted:#a1aea5;
+  --white:#f3f7f4;
+  --border:rgba(124,255,155,.16);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,sans-serif;
+  line-height:1.7;
+}
+
+a {
+  text-decoration:none;
+  color:inherit;
+}
+
+.container {
+  width:min(1120px,90%);
+  margin:auto;
+}
+
+header {
+  position:sticky;
+  top:0;
+  z-index:99;
+  background:rgba(8,13,11,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+
+nav {
+  min-height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo {
+  font-family:"Space Grotesk";
+  font-size:23px;
+  font-weight:700;
+}
+
+.logo span,.green {
+  color:var(--green);
+}
+
+.nav-links {
+  display:flex;
+  gap:21px;
+  list-style:none;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.nav-links a:hover {
+  color:var(--green);
+}
+
+.hero {
+  min-height:650px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  align-items:center;
+  gap:50px;
+  padding:75px 0;
+}
+
+.eyebrow {
+  color:var(--green);
+  font-size:12px;
+  letter-spacing:3px;
+  font-weight:700;
+  text-transform:uppercase;
+  margin-bottom:18px;
+}
+
+h1,h2,h3 {
+  font-family:"Space Grotesk",sans-serif;
+}
+
+.hero h1 {
+  font-size:clamp(43px,6vw,70px);
+  line-height:1.08;
+  margin-bottom:22px;
+}
+
+.hero h1 span {
+  color:var(--green);
+}
+
+.hero p {
+  color:var(--muted);
+  margin-bottom:28px;
+  max-width:540px;
+}
+
+.hero-image {
+  position:relative;
+}
+
+.hero-image img {
+  width:100%;
+  height:430px;
+  object-fit:cover;
+  border-radius:15px;
+  border:1px solid var(--border);
+  box-shadow:0 0 50px rgba(53,216,117,.10);
+}
+
+.image-label {
+  position:absolute;
+  bottom:18px;
+  left:18px;
+  background:rgba(8,13,11,.9);
+  border:1px solid var(--border);
+  padding:10px 15px;
+  border-radius:8px;
+  color:var(--green);
+  font-size:11px;
+  letter-spacing:1px;
+}
+
+.buttons {
+  display:flex;
+  flex-wrap:wrap;
+  gap:13px;
+}
+
+.btn {
+  display:inline-block;
+  padding:12px 21px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:700;
+  transition:.2s;
+}
+
+.primary {
+  background:var(--green);
+  color:#08120b;
+}
+
+.secondary {
+  border:1px solid var(--border);
+  color:var(--green);
+}
+
+.btn:hover {
+  transform:translateY(-3px);
+}
+
+section {
+  padding:85px 0;
+  border-top:1px solid rgba(255,255,255,.045);
+}
+
+.section-title {
+  font-size:36px;
+  margin-bottom:12px;
+}
+
+.section-intro {
+  color:var(--muted);
+  max-width:650px;
+  margin-bottom:35px;
+}
+
+.about-grid {
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:35px;
+}
+
+.about-text {
+  color:var(--muted);
+}
+
+.info-card,.card,.skill-card {
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:25px;
+}
+
+.info-card p {
+  color:var(--muted);
+  margin:8px 0;
+}
+
+.info-card strong {
+  color:var(--green);
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card {
+  transition:.25s;
+}
+
+.card:hover,.skill-card:hover {
+  transform:translateY(-5px);
+  border-color:var(--green);
+}
+
+.card h3 {
+  font-size:20px;
+  margin:10px 0;
+}
+
+.card p {
+  color:var(--muted);
+  font-size:14px;
+}
+
+.card-tag {
+  font-size:10px;
+  letter-spacing:1.5px;
+  color:var(--green);
+  font-weight:700;
+  text-transform:uppercase;
+}
+
+.status {
+  display:inline-block;
+  margin-top:17px;
+  color:var(--green);
+  font-size:11px;
+  border:1px solid var(--border);
+  padding:5px 11px;
+  border-radius:20px;
+}
+
+.project-link {
+  display:inline-block;
+  margin-top:17px;
+  padding:9px 14px;
+  background:var(--green);
+  color:#08120b;
+  font-size:12px;
+  font-weight:700;
+  border-radius:5px;
+  transition:.2s;
+}
+
+.project-link:hover {
+  transform:translateY(-3px);
+  box-shadow:0 5px 20px rgba(124,255,155,.15);
+}
+
+.skills-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.skill-card {
+  font-size:14px;
+  font-weight:600;
+}
+
+.skill-card span {
+  display:block;
+  color:var(--muted);
+  font-size:11px;
+  font-weight:400;
+  margin-top:4px;
+}
+
+.timeline {
+  border-left:2px solid var(--green);
+  padding-left:25px;
+  margin-left:7px;
+}
+
+.timeline-item {
+  position:relative;
+  margin-bottom:30px;
+}
+
+.timeline-item:before {
+  content:"";
+  position:absolute;
+  left:-32px;
+  top:9px;
+  width:11px;
+  height:11px;
+  background:var(--green);
+  border-radius:50%;
+}
+
+.timeline-item h3 {
+  font-size:18px;
+}
+
+.timeline-item p {
+  color:var(--muted);
+  font-size:14px;
+}
+
+.contact-box {
+  background:linear-gradient(135deg,#101e16,#0d1511);
+  border:1px solid var(--border);
+  padding:40px;
+  border-radius:15px;
+}
+
+.contact-links {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.contact-link {
+  padding:18px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:9px;
+}
+
+.contact-link span {
+  display:block;
+  color:var(--green);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+
+.contact-link strong {
+  font-size:13px;
+  overflow-wrap:anywhere;
+}
+
+footer {
+  padding:27px 0;
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  border-top:1px solid var(--border);
+}
+
+@media(max-width:800px) {
+  .nav-links {
+    gap:10px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    font-size:10px;
+  }
+
+  .hero {
+    grid-template-columns:1fr;
+    padding:60px 0;
+  }
+
+  .hero-image img {
+    height:330px;
+  }
+
+  .about-grid,.grid,.skills-grid,.contact-links {
+    grid-template-columns:1fr;
+  }
+
+  .section-title {
+    font-size:30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="container">
+  <nav>
+   <a href="#home" class="logo">ARMA<span>.</span></a>
+
+   <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#contact">Contact</a></li>
+   </ul>
+  </nav>
+ </div>
+</header>
+
+<main>
+
+<section class="container hero" id="home">
+ <div>
+  <div class="eyebrow">Cybersecurity • Ethical Hacking</div>
+
+  <h1>Securing the<br>Digital <span>World.</span></h1>
+
+  <p>
+   Hi, I'm Arma Khan — an aspiring cybersecurity professional
+   passionate about digital security, networking and ethical hacking.
+   I am continuously learning and building practical skills to help
+   make the digital world safer.
+  </p>
+
+  <div class="buttons">
+   <a class="btn primary" href="#projects">Explore My Projects</a>
+   <a class="btn secondary" href="#contact">Let's Connect</a>
+  </div>
+ </div>
+
+ <div class="hero-image">
+  <img src="hero-cyber.png.jpeg" alt="Cybersecurity workstation">
+  <div class="image-label">CYBERSECURITY • ETHICAL HACKING</div>
+ </div>
+</section>
+
+<section id="about">
+ <div class="container">
+  <div class="eyebrow">01 / About</div>
+  <h2 class="section-title">About <span class="green">Me</span></h2>
+
+  <div class="about-grid">
+   <p class="about-text">
+    I am an aspiring cybersecurity professional with a growing interest
+    in ethical hacking, network security and digital protection.
+    My goal is to understand how digital systems work, identify security
+    risks responsibly and develop useful solutions that protect people.
+    <br><br>
+    I believe in learning by doing, building real projects and improving
+    my knowledge through consistent practice.
+   </p>
+
+   <div class="info-card">
+    <p><strong>Name:</strong> Arma Khan</p>
+    <p><strong>Field:</strong> Cybersecurity</p>
+    <p><strong>Focus:</strong> Ethical Hacking & Security</p>
+    <p><strong>Approach:</strong> Learn • Build • Improve</p>
+    <p><strong>Status:</strong> Currently Learning</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="education">
+ <div class="container">
+  <div class="eyebrow">02 / Education</div>
+  <h2 class="section-title">My <span class="green">Education</span></h2>
+
+  <div class="grid">
+   <article class="card">
+    <div class="card-tag">Academic Background</div>
+    <h3>Intermediate — ICS</h3>
+    <p>Completed Intermediate studies with a focus on Computer Science, Mathematics and Physics.</p>
+    <span class="status">Completed</span>
+   </article>
+
+   <article class="card">
+    <div class="card-tag">Professional Learning</div>
+    <h3>Cybersecurity Fundamentals</h3>
+    <p>Learning core cybersecurity concepts, networking fundamentals and responsible security practices.</p>
+    <span class="status">Learning</span>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section id="skills">
+ <div class="container">
+  <div class="eyebrow">03 / Capabilities</div>
+  <h2 class="section-title">My <span class="green">Skills</span></h2>
+
+  <p class="section-intro">
+   Skills I am developing through study, guided practice and personal projects.
+  </p>
+
+  <div class="skills-grid">
+   <div class="skill-card">Cybersecurity Fundamentals<span>Currently Learning</span></div>
+   <div class="skill-card">Networking<span>Currently Learning</span></div>
+   <div class="skill-card">Linux<span>Currently Learning</span></div>
+   <div class="skill-card">Ethical Hacking<span>Currently Learning</span></div>
+   <div class="skill-card">HTML<span>Basic Knowledge</span></div>
+   <div class="skill-card">CSS<span>Basic Knowledge</span></div>
+   <div class="skill-card">Python<span>Learning Next</span></div>
+   <div class="skill-card">Security Awareness<span>Currently Learning</span></div>
+   <div class="skill-card">Problem Solving<span>Developing</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="projects">
+ <div class="container">
+  <div class="eyebrow">04 / What I'm Building</div>
+  <h2 class="section-title">Featured <span class="green">Projects</span></h2>
+
+  <p class="section-intro">
+   Practical cybersecurity projects focused on real-world digital safety.
+   Explore my completed project and upcoming ideas.
+  </p>
+
+  <div class="grid">
+
+   <article class="card">
+    <div class="card-tag">Project 01 • Cybersecurity Tool</div>
+    <h3>Phishing Guard</h3>
+    <p>
+     A web-based URL security scanner designed to identify common
+     phishing indicators and help users recognize potentially
+     suspicious links before visiting unknown websites.
+    </p>
+    <span class="status">Completed</span>
+    <br>
+    <a class="project-link" href="Phishguard/index.html" target="_blank" rel="noopener">
+     View Live Project ↗
+    </a>
+   </article>
+
+   <article class="card">
+    <div class="card-tag">Project 02 • Password Security</div>
+    <h3>SafePass</h3>
+    <p>
+     A privacy-focused password safety educator that checks password
+     strength locally and explains how to create safer passwords
+     without storing them.
+    </p>
+    <span class="status">Planned</span>
+   </article>
+
+   <article class="card">
+    <div class="card-tag">Project 03 • Digital Protection</div>
+    <h3>CyberShield</h3>
+    <p>
+     A simple digital safety guide that helps people recognize
+     common online scams, protect accounts and improve their
+     privacy habits.
+    </p>
+    <span class="status">Planned</span>
+   </article>
+
+  </div>
+ </div>
+</section>
+
+<section id="journey">
+ <div class="container">
+  <div class="eyebrow">05 / Growth</div>
+  <h2 class="section-title">My Learning <span class="green">Journey</span></h2>
+
+  <p class="section-intro">
+   A continuous journey of learning, practice and building cybersecurity knowledge.
+  </p>
+
+  <div class="timeline">
+   <div class="timeline-item">
+    <h3>Computer Science Foundation</h3>
+    <p>Completed Intermediate studies in ICS.</p>
+   </div>
+
+   <div class="timeline-item">
+    <h3>Cybersecurity Fundamentals</h3>
+    <p>Studying security concepts, networking and digital protection.</p>
+   </div>
+
+   <div class="timeline-item">
+    <h3>Hands-on Learning</h3>
+    <p>Developing practical skills through guided learning and responsible exercises.</p>
+   </div>
+
+   <div class="timeline-item">
+    <h3>Building Real Projects</h3>
+    <p>Working towards useful cybersecurity tools that can help everyday users.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="contact">
+ <div class="container">
+  <div class="eyebrow">06 / Contact</div>
+
+  <div class="contact-box">
+   <h2 class="section-title">Let's <span class="green">Connect</span></h2>
+
+   <p class="section-intro">
+    Interested in cybersecurity, learning opportunities or meaningful projects?
+    Feel free to connect with me.
+   </p>
+
+   <div class="contact-links">
+    <a class="contact-link" href="mailto:armakhan370@gmail.com">
+     <span>Email</span>
+     <strong>Gmail ↗</strong>
+    </a>
+
+    <a class="contact-link" href="https://github.com/armaimrankhan-verse" target="_blank" rel="noopener">
+     <span>Code & Projects</span>
+     <strong>GitHub ↗</strong>
+    </a>
+
+    <a class="contact-link" href="https://tryhackme.com/p/armaimrankhan31" target="_blank" rel="noopener">
+     <span>Cybersecurity Learning</span>
+     <strong>TryHackMe ↗</strong>
+    </a>
+   </div>
+  </div>
+ </div>
+</section>
+
+</main>
+
+<footer>
+ <div class="container">
+  © 2026 Arma Khan. Built with purpose, curiosity and a passion for cybersecurity.
+ </div>
+</footer>
+
+</body>
+</html>
